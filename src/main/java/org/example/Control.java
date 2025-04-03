@@ -7,15 +7,17 @@ import java.util.HashSet;
 import java.awt.geom.Point2D;
 
 public class Control{
-    private final KeyHandler keyHandler = new KeyHandler();
+    private final KeyHandler keyHandler;
 
+    public Control(KeyHandler keyHandler){
+        this.keyHandler = keyHandler;
+    }
     public Point2D getMovingVector() {
         int x = 0, y = 0;
         if (keyHandler.isKeyPressed(KeyEvent.VK_W)) y = -1;
         if (keyHandler.isKeyPressed(KeyEvent.VK_S)) y = 1;
         if (keyHandler.isKeyPressed(KeyEvent.VK_A)) x = -1;
         if (keyHandler.isKeyPressed(KeyEvent.VK_D)) x = 1;
-        System.out.println("X=" + x + ", Y=" + x);
         return new Point2D.Double(x, y);
     }
 
@@ -25,7 +27,7 @@ public class Control{
 }
 
 class KeyHandler implements KeyListener {
-    private final Set<Integer> pressedKeys = new HashSet<>();
+    private final HashSet<Integer> pressedKeys = new HashSet<>();
 
     @Override
     public void keyPressed(KeyEvent e) {

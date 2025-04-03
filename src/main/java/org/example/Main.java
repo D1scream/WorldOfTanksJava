@@ -6,11 +6,6 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Tank Game");
         Game game = new Game();
-        KeyHandler keyHandler = new KeyHandler();
-
-        game.addKeyListener(keyHandler);
-        game.setFocusable(true);
-        game.requestFocusInWindow();
 
         frame.add(game);
         frame.pack();

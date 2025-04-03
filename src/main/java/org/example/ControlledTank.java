@@ -24,7 +24,6 @@ public class ControlledTank extends Tank {
     @Override
     public void move(){
         Point2D directionVector = control.getMovingVector();
-        System.out.println("Direction Vector: X=" + directionVector.getX() + ", Y=" + directionVector.getY());
 
         if(directionVector.getX() != 0){
             rotation = rotateVector(rotation, rotation_speed * directionVector.getX());
